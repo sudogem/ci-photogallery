@@ -1,0 +1,60 @@
+Good morning, bai Man
+
+ 
+
+1.       ALBUM MODULE
+
+a.       Manage albums (CRUD).
+
+b.      Assign photo to albums.
+
+c.       Move photo/photos to another album.
+
+d.      Count the number of photos in the album.
+
+2.       PAGINATION
+
+a.       Implement pagination in the list of photos in the admin page.
+
+3.       ADMIN SIDE
+
+a.       Manage users (CRUD).
+
+b.      Search users.
+
+4.       UPLOAD PHOTOS
+
+a.       Validate valid image format in uploading photo.
+
+5.       IMAGE SLIDESHOWS
+
+a.       View images in slideshow.
+
+ 
+
+Mao rana cya bai Man cguro mahuman rana nimo ug 1 day..hehe
+
+Tan-aw nimo Man dali ra kaha sabton sa ako part ang Codeigniter nahan sad ko kita
+
+ug Apps in codeigniter gud…hehe
+
+ 
+
+Kung native kay maka sabut rako bai Man. Kung asa think nimo madali nimo ug human kay kana
+
+lang gamita bai Man.
+
+ 
+
+ 
+
+Hatagi sad nya ko sa imo price bai Man.hehe
+
+ 
+
+Thanks,
+
+
+http://spaceforaname.com/galleryview/demo-details.html
+http://spaceforaname.com/galleryview/demo-showall.html
+http://spaceforaname.com/galleryview/demo-position.html

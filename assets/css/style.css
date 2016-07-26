@@ -1,0 +1,15 @@
+#container em {
+color:#fff;
+}
+ul#footer {
+padding:0px;
+float:right;
+}
+ul#footer li a {
+  color:#fff;
+  font-size:10px;
+}
+ul#footer li {
+  display: inline;
+  list-style: none outside none;
+}

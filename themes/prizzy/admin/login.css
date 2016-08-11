@@ -1,0 +1,16 @@
+/* Login */
+.loginbox { width:300px ; color:#fff ;  margin:0 auto ; margin-top:10% ;  }
+.loginbox .login {
+  text-decoration:none;
+  background:#444;
+  -moz-border-radius:5px; border:1px solid #333 ; -webkit-border-radius:3px;
+  opacity:0.90;
+  _filter: alpha(opacity=80);
+  font:normal 18px Arial, Helvetica, sans-serif;
+  padding:20px;
+}
+.loginbox .title { color:#fff ; text-align:center; margin:0; padding: 0; font:normal 20px Arial, Helvetica, sans-serif !important }
+.loginbox .login input[type="text"], 
+  .loginbox .login input[type="password"] {
+  width: 90%;
+}

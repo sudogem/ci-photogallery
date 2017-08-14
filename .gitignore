@@ -1,4 +1,5 @@
 log
 log/
+application/logs/
 cache
 cache/

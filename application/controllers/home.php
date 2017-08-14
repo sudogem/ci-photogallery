@@ -70,4 +70,3 @@ class Home extends CI_Controller {
     $this->load->view('view_album', $this->data);
   }
 }
-

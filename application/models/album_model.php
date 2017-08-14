@@ -97,7 +97,8 @@ class Album_model extends CI_Model {
 				group by album.id order by %s", $this->user_id, $order_by);
 			}
 		}
-		print($sql);
+		// print('album.get_all_album:');
+		// print($sql);
     $query = $this->db->query($sql);
     if ($query->result()) {
       return array('data' => $query->result_array(), 'pagination' => $is_paginate ? $pagination : "");

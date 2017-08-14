@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `ci_photogallery`
 --
-CREATE database 'ci_photogallery';
+
 
 -- --------------------------------------------------------
 

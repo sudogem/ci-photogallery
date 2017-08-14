@@ -48,10 +48,12 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = 'webdevel';
-$db['default']['database'] = 'ci_photogallery';
+$db['default']['hostname'] = isset($_ENV["PHINX_MYDB_HOST"]) ? $_ENV["PHINX_MYDB_HOST"]: 'localhost';
+$db['default']['username'] = isset($_ENV["PHINX_MYDB_USER"]) ? $_ENV["PHINX_MYDB_USER"]: 'root';
+$db['default']['password'] = isset($_ENV["PHINX_MYDB_PASS"]) ? $_ENV["PHINX_MYDB_PASS"]: 'webdevel';
+$db['default']['database'] = isset($_ENV["PHINX_MYDB_DBNAME"]) ? $_ENV["PHINX_MYDB_DBNAME"]: 'ci_photogallery';
+// $db['default']['port'] = isset($_ENV["PHINX_MYDB_PORT"]) ? $_ENV["PHINX_MYDB_PORT"]: "3311";
+$db['default']['port'] = "3311";
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
@@ -64,6 +66,9 @@ $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 
+print "<pre>";
+print_r($db['default']);
+print "</pre>";
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */

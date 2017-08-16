@@ -1,5 +1,4 @@
-log
 log/
 application/logs/
-cache
 cache/
+uploads/gallery/

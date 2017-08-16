@@ -13,7 +13,6 @@ class Album_model extends CI_Model {
 		$this->data = new stdClass ;
 		$this->user_id = getuid();
     $this->per_page = $this->config->item('per_page');
-    $this->data = array();
 	}
 
 	/**

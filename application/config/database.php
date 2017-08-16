@@ -66,6 +66,22 @@ $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 
+## Note: Make sure that we configure our Environment variables(System variables in Windows)
+## Else it will choose the default variables.
+## For Postgres DB
+$db['postgres_dev']['hostname'] = isset($_ENV["PHINX_DB_HOST"]) ? $_ENV["PHINX_DB_HOST"]: "localhost";
+$db['postgres_dev']['username'] = isset($_ENV["PHINX_DB_USER"]) ? $_ENV["PHINX_DB_USER"]: "root";
+$db['postgres_dev']['password'] = isset($_ENV["PHINX_DB_PASS"]) ? $_ENV["PHINX_DB_PASS"]: "webdevel";
+$db['postgres_dev']['database'] = isset($_ENV["PHINX_DB_DBNAME"]) ? $_ENV["PHINX_DB_DBNAME"]: "ci_photogallery";
+$db['postgres_dev']['port'] = isset($_ENV["PHINX_DB_PORT"]) ? $_ENV["PHINX_DB_PORT"]: "3306";
+$db['postgres_dev']['dbdriver'] = "postgre";
+$db['postgres_dev']['dbprefix'] = "";
+$db['postgres_dev']['pconnect'] = TRUE;
+$db['postgres_dev']['db_debug'] = TRUE;
+$db['postgres_dev']['cache_on'] = FALSE;
+$db['postgres_dev']['cachedir'] = "";
+$db['postgres_dev']['char_set'] = "utf8";
+
 // print "<pre>";
 // print_r($db['default']);
 // print "</pre>";

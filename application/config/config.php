@@ -25,6 +25,8 @@ else
     $config['base_url'] = 'http://localhost/';
 }
 
+date_default_timezone_set('Asia/Manila');
+
 /*
 |--------------------------------------------------------------------------
 | Index File

@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class user_model extends CI_Model {
+class User_model extends CI_Model {
 
 	var $user_id;
 	var $username;
@@ -22,7 +22,7 @@ class user_model extends CI_Model {
 
 	function __construct() {
 		parent::__construct();
-    $this->t_user = 'user' ;
+    $this->t_user = 'users' ;
     $this->per_page = $this->config->item('per_page');
     $this->data = array();
 	}

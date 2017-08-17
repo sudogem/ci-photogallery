@@ -45,6 +45,7 @@
 | the active record class
 */
 
+// $active_group = 'postgres_dev';
 $active_group = 'default';
 $active_record = TRUE;
 
@@ -52,8 +53,7 @@ $db['default']['hostname'] = isset($_ENV["PHINX_MYDB_HOST"]) ? $_ENV["PHINX_MYDB
 $db['default']['username'] = isset($_ENV["PHINX_MYDB_USER"]) ? $_ENV["PHINX_MYDB_USER"]: 'root';
 $db['default']['password'] = isset($_ENV["PHINX_MYDB_PASS"]) ? $_ENV["PHINX_MYDB_PASS"]: 'webdevel';
 $db['default']['database'] = isset($_ENV["PHINX_MYDB_DBNAME"]) ? $_ENV["PHINX_MYDB_DBNAME"]: 'ci_photogallery';
-// $db['default']['port'] = isset($_ENV["PHINX_MYDB_PORT"]) ? $_ENV["PHINX_MYDB_PORT"]: "3311";
-$db['default']['port'] = "3311";
+$db['default']['port'] = isset($_ENV["PHINX_MYDB_PORT"]) ? $_ENV["PHINX_MYDB_PORT"]: "3311";
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
@@ -82,8 +82,22 @@ $db['postgres_dev']['cache_on'] = FALSE;
 $db['postgres_dev']['cachedir'] = "";
 $db['postgres_dev']['char_set'] = "utf8";
 
+## Deploy to Heroku Postgres add-ons
+$db['postgres_prod']['hostname'] = isset($_ENV["HEROKU_POSTGRES_DB_HOSTNAME"]) ? $_ENV["HEROKU_POSTGRES_DB_HOSTNAME"]: "localhost";
+$db['postgres_prod']['username'] = isset($_ENV["HEROKU_POSTGRES_DB_USERNAME"]) ? $_ENV["HEROKU_POSTGRES_DB_USERNAME"]: "root";
+$db['postgres_prod']['password'] = isset($_ENV["HEROKU_POSTGRES_DB_PASSWORD"]) ? $_ENV["HEROKU_POSTGRES_DB_PASSWORD"]: "webdevel";
+$db['postgres_prod']['database'] = isset($_ENV["HEROKU_POSTGRES_DB_DBNAME"]) ? $_ENV["HEROKU_POSTGRES_DB_DBNAME"]: "ci_photogallery";
+$db['postgres_prod']['port'] = isset($_ENV["HEROKU_POSTGRES_DB_PORT"]) ? $_ENV["HEROKU_POSTGRES_DB_PORT"]: "3306";
+$db['postgres_prod']['dbdriver'] = "postgre";
+$db['postgres_prod']['dbprefix'] = "";
+$db['postgres_prod']['pconnect'] = TRUE;
+$db['postgres_prod']['db_debug'] = TRUE;
+$db['postgres_prod']['cache_on'] = FALSE;
+$db['postgres_prod']['cachedir'] = "";
+$db['postgres_prod']['char_set'] = "utf8";
+
 // print "<pre>";
-// print_r($db['default']);
+// print_r($db[$active_group]);
 // print "</pre>";
 
 /* End of file database.php */

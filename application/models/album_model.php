@@ -70,33 +70,57 @@ class Album_model extends CI_Model {
 		}
 
 		if (isset($params['type']) && $params['type'] == 'public') {
-				$sql = sprintf("select album.*, count(photo.id) as total_photos from photo
-					right join album on album.id = photo.album_id
-					group by album.id
-					having total_photos > 0
-					order by %s", $order_by);
+				switch($this->db->dbdriver) {
+					case 'postgre':
+					// For postgres
+					$sql = sprintf("SELECT DISTINCT ON (album.id) album.*, COUNT(photo.id) AS total_photos
+                          FROM photo
+                          RIGHT JOIN album ON album.id = photo.album_id
+                          GROUP BY album.id");
+					break;
+
+					default:
+						// For mysql
+						$sql = sprintf("SELECT album.*, count(photo.id) AS total_photos
+                            FROM photo
+                            RIGHT JOIN album ON album.id = photo.album_id
+                            GROUP BY album.id
+                            HAVING total_photos > 0
+                            ORDER BY %s", $order_by);
+				}
 		} else {
 			if (is_admin()) {
-				$limit = $is_paginate ? " limit $u, $this->per_page" : "";
-				$sql = sprintf("select album.*, count(photo.id) as total_photos from photo
-					right join album on album.id = photo.album_id
-					group by album.id
-					order by %s %s", $order_by, $limit);
+				$limit = $is_paginate ? " LIMIT $this->per_page OFFSET $u" : "";
+				switch($this->db->dbdriver) {
+					case 'postgre':
+						// For postgres
+						$sql = sprintf("SELECT DISTINCT ON (album.id) album.*, COUNT(photo.id) AS total_photos
+                            FROM photo
+                            RIGHT JOIN album ON album.id = photo.album_id
+                            GROUP BY album.id
+                            ORDER BY album.id,%s %s", $order_by, $limit);
+						break;
 
-				// $sql = "
-				// 	select album.*, count(photo.id) as total_photos from photo1
-				// 	right join album on album.id = photo.album_id
-				// 	group by album.id
-				// 	order by $order_by";
+					default:
+						// For mysql
+						$sql = sprintf("SELECT album.*, COUNT(photo.id) AS total_photos
+                            FROM photo
+                            RIGHT JOIN album ON album.id = photo.album_id
+                            GROUP BY album.id
+                            ORDER BY %s %s", $order_by, $limit);
+				}
+
 			} else {
-				$sql = sprintf("
-				select album.*, album_users.user_id,  count(photo.id) as total_photos from photo
-				right join album on album.id = photo.album_id
-				inner join album_users on album_users.album_id = album.id and album_users.user_id = %d
-				group by album.id order by %s", $this->user_id, $order_by);
+				$sql = sprintf("SELECT album.*, album_users.user_id, COUNT(photo.id) AS total_photos
+                        FROM photo
+                        RIGHT JOIN album ON album.id = photo.album_id
+                        INNER JOIN album_users ON album_users.album_id = album.id
+                        AND album_users.user_id = %d
+                        GROUP BY album.id
+                        ORDER BY %s", $this->user_id, $order_by);
 			}
 		}
-		// print('album.get_all_album:');
+		// print('Album_model.get_all_album: ');
 		// print($sql);
     $query = $this->db->query($sql);
     if ($query->result()) {

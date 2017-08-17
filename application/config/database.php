@@ -45,8 +45,8 @@
 | the active record class
 */
 
-// $active_group = 'postgres_dev';
-$active_group = 'default';
+$active_group = 'postgres_dev';
+// $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = isset($_ENV["PHINX_MYDB_HOST"]) ? $_ENV["PHINX_MYDB_HOST"]: 'localhost';
@@ -72,7 +72,8 @@ $db['default']['stricton'] = FALSE;
 $db['postgres_dev']['hostname'] = isset($_ENV["PHINX_DB_HOST"]) ? $_ENV["PHINX_DB_HOST"]: "localhost";
 $db['postgres_dev']['username'] = isset($_ENV["PHINX_DB_USER"]) ? $_ENV["PHINX_DB_USER"]: "root";
 $db['postgres_dev']['password'] = isset($_ENV["PHINX_DB_PASS"]) ? $_ENV["PHINX_DB_PASS"]: "webdevel";
-$db['postgres_dev']['database'] = isset($_ENV["PHINX_DB_DBNAME"]) ? $_ENV["PHINX_DB_DBNAME"]: "ci_photogallery";
+// $db['postgres_dev']['database'] = isset($_ENV["PHINX_DB_DBNAME"]) ? $_ENV["PHINX_DB_DBNAME"]: "ci_photogallery";
+$db['postgres_dev']['database'] = "ci_photogallery";
 $db['postgres_dev']['port'] = isset($_ENV["PHINX_DB_PORT"]) ? $_ENV["PHINX_DB_PORT"]: "3306";
 $db['postgres_dev']['dbdriver'] = "postgre";
 $db['postgres_dev']['dbprefix'] = "";

@@ -30,5 +30,5 @@ This is a photo gallery app built using Codeigniter Framework.
 * PHP   
 * MySQL  
 
-### Developer   
+### Developer
 CiPhotoGallery &copy; 2013, Arman Ortega. Released under the MIT License.   

@@ -33,9 +33,11 @@
 
   <ul id="sliding-navigation">
     <li class="sliding-element" style="margin-left: 0px;"><h3>List of all Albums</h3></li>
-    <?php foreach($album['data'] as $k => $v): ?>
-    <li class="sliding-element" style="margin-left: 0px;"><a href="<?php echo site_url("home/view_album/".$v['id'])?>" style="padding-left: 15px;"><?php echo $v['album_name'];?></a></li>
-    <?php endforeach; ?>
+    <?php if($album): ?>
+      <?php foreach($album['data'] as $k => $v): ?>
+      <li class="sliding-element" style="margin-left: 0px;"><a href="<?php echo site_url("home/view_album/".$v['id'])?>" style="padding-left: 15px;"><?php echo $v['album_name'];?></a></li>
+      <?php endforeach; ?>
+  <?php endif; ?>
   </ul>
 
 	<div id="container">

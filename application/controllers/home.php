@@ -29,7 +29,7 @@ class Home extends CI_Controller {
   public function index()
   {
     $albumData = $this->album_model->first();
-    $id = $albumData->id;
+    $id = ($albumData ? $albumData->id : 0);
     $this->gallery_model->_orderby = "album.created_at DESC";
     $this->gallery_model->set_album_id($id);
     $gallery = $this->gallery_model->get_all_galleries(array('type' => 'public'));
@@ -41,7 +41,7 @@ class Home extends CI_Controller {
     }
 
     $album = $this->album_model->get_all_album(array('type' => 'public') );
-    $this->data['album'] = $album;
+    $this->data['album'] = ($album ? $album : array());
     $this->data['photo'] = $galleries;
     $this->load->view('home', $this->data);
   }

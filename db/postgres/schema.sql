@@ -33,6 +33,9 @@ id integer NOT NULL,
   updated_at date NOT NULL
 );
 
+CREATE SEQUENCE album_id_seq;
+ALTER TABLE album ALTER id SET DEFAULT NEXTVAL('album_id_seq');
+
 --
 -- Dumping data for table album
 --
@@ -77,6 +80,8 @@ id integer NOT NULL,
   updated_at date NOT NULL
 );
 
+CREATE SEQUENCE photo_id_seq;
+ALTER TABLE photo ALTER id SET DEFAULT NEXTVAL('photo_id_seq');
 --
 -- Dumping data for table photo
 --
@@ -146,4 +151,3 @@ ALTER TABLE photo
 --
 ALTER TABLE users
  ADD PRIMARY KEY (id);
- 

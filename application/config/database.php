@@ -45,8 +45,8 @@
 | the active record class
 */
 
-$active_group = 'postgres_prod';
-// $active_group = 'default';
+// $active_group = 'postgres_prod';
+$active_group = 'default';
 $active_record = TRUE;
 
 ## Note: Make sure that we configure our Environment variables(System variables in Windows)

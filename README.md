@@ -22,7 +22,11 @@ This is a photo gallery app built using Codeigniter Framework.
    e.g, git clone --depth=1 https://github.com/sudogem/ci_photogallery.git    
 3. Import the database schema(schema.sql) found inside db/ into your phpMyAdmin   
 4. Edit the config.php & database.php settings found inside the /application/config folder   
-4. Open the app by accessing it in your browser e.g. http://localhost/ci_photogallery   
+5. Open the app by accessing it in your browser e.g. http://localhost/ci_photogallery   
+
+### Others
+$ php composer.phar install
+$ php composer.phar update --ignore-platform-reqs
 
 ### Technology stacks
 * jQuery   

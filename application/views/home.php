@@ -4,8 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Photo Gallery</title>
 
-<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/assets/css/style.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/assets/slidemenu/css/style.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/assets/css/style.css?<?= uniqid();?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/assets/slidemenu/css/style.css?<?= uniqid();?>" />
 
 <!-- First, add jQuery (and jQuery UI if using custom easing or animation -->
 <script type="text/javascript" src="<?= base_url()?>/assets/galleryview/js/jquery1.7.min.js"></script>
@@ -31,27 +31,31 @@
 
 <body>
 
-  <ul id="sliding-navigation">
-    <li class="sliding-element" style="margin-left: 0px;"><h3>List of all Albums</h3></li>
-    <?php if($album): ?>
-      <?php foreach($album['data'] as $k => $v): ?>
-      <li class="sliding-element" style="margin-left: 0px;"><a href="<?php echo site_url("home/view_album/".$v['id'])?>" style="padding-left: 15px;"><?php echo $v['album_name'];?></a></li>
-      <?php endforeach; ?>
-  <?php endif; ?>
-  </ul>
-
-	<div id="container">
-		<h1>Photo Gallery</h1>
-		<ul id="myGallery" style="float:right" >
-			<?php foreach($photo as $k => $v): ?>
-			<li><img src="<?php echo $v['filename']; ?>" alt="<?php echo $v['title'] ?>" />
-			<?php endforeach; ?>
-		</ul>
-
-    <ul id="footer">
-      <li><a href="<?php echo site_url("/");?>">&laquo; Back to homepage</a></li>
-      <li><a href="<?php echo site_url("account/signin");?>">Login to Admin</a></li>
+  <div id="wrapper">
+    <ul id="sliding-navigation">
+      <li class="sliding-element" style="margin-left: 0px;"><h3>List of all Albums</h3></li>
+      <?php if($album): ?>
+        <?php foreach($album['data'] as $k => $v): ?>
+        <li class="sliding-element" style="margin-left: 0px;"><a href="<?php echo site_url("home/view_album/".$v['id'])?>" style="padding-left: 15px;"><?php echo $v['album_name'];?></a></li>
+        <?php endforeach; ?>
+    <?php endif; ?>
     </ul>
-	</div>
+
+    <div id="container">
+      <h1>Photo Gallery</h1>
+      <ul id="myGallery" style="float:right" >
+        <?php foreach($photo as $k => $v): ?>
+        <li><img src="<?php echo $v['filename']; ?>" alt="<?php echo $v['title'] ?>" />
+        <?php endforeach; ?>
+      </ul>
+
+      <ul id="footer">
+        <li><a href="<?php echo site_url("/");?>">&laquo; Back to homepage</a></li>
+        <li><a href="<?php echo site_url("account/signin");?>">Login to Admin</a></li>
+      </ul>
+    </div>
+  </div>
+
+
 </body>
 </html>

@@ -66,6 +66,11 @@ input[type=submit] { padding: 2px 10px;}
 	border:none;
 }
 
+#nav-container {
+	width: 900px;
+	margin: 0 auto;
+}
+
 ul#nav {
 	clear:both;
 	margin:0;
@@ -165,10 +170,11 @@ a.btn2:hover {text-decoration:none !important}
 a.btn:hover { color:#CC0000  }
 
 #content {
-	margin:0 270px 0 0;
 	background:url(images/content.jpg) top right no-repeat;
 	font-size:120%;
 	padding:20px;
+	width: 800px;
+	margin: 0 auto;
 }
 
 #content h1,h2,h3,h4,h5,p,ul,ol,blockquote {

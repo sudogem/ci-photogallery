@@ -7,7 +7,7 @@ class Album_model extends CI_Model {
 	{
 		parent::__construct();
 		$this->t_album = 'album' ;
-		$this->t_user  = 'users' ;
+		$this->t_user  = 'user' ;
 		$this->t_photo = 'photo' ;
 		$this->t_album_users = 'album_users' ;
 		$this->data = new stdClass ;
@@ -29,7 +29,7 @@ class Album_model extends CI_Model {
 	public function get_album_user($album_id)
 	{
     $this->db->join($this->t_album_users, sprintf("album_users.album_id = album.id and album.id = %d", $album_id));
-    $this->db->join($this->t_user, sprintf("users.id = album_users.user_id"));
+    $this->db->join($this->t_user, sprintf("user.id = album_users.user_id"));
     $query = $this->db->get( $this->t_album );
 		$data  = $query->row_array();
     return $data ;

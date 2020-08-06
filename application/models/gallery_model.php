@@ -28,6 +28,8 @@ class Gallery_model extends CI_Model
      */
     public function get_all_galleries($params=array())
     {
+		// $this->_orderby = array('order_by' => 'updated_at asc');
+		$this->_orderby = 'photo.updated_at desc';
 			$this->_prep_query();
 			$this->db->_protect_identifiers=false;
 			$this->db->select("album.id as album_id, album.*, photo.id as id, photo.*");

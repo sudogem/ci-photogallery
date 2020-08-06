@@ -254,7 +254,10 @@ if ( ! function_exists('get_config'))
 			}
 		}
 
-		return $_config[0] =& $config;
+		// return $_config[0] =& $config;
+		// temporary fix: Only variable references should be returned by reference
+		$_config[0] =& $config;
+		return $_config[0];
 	}
 }
 

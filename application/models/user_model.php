@@ -22,9 +22,9 @@ class User_model extends CI_Model {
 
 	function __construct() {
 		parent::__construct();
-    $this->t_user = 'users' ;
-    $this->per_page = $this->config->item('per_page');
-    $this->data = array();
+		$this->t_user = 'user' ;
+		$this->per_page = $this->config->item('per_page');
+		$this->data = array();
 	}
 
 	/**

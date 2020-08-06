@@ -24,10 +24,6 @@ This is a photo gallery app built using Codeigniter Framework.
 4. Edit the config.php & database.php settings found inside the /application/config folder   
 5. Open the app by accessing it in your browser e.g. http://localhost/ci_photogallery   
 
-### Others
-$ php composer.phar install
-$ php composer.phar update --ignore-platform-reqs
-
 ### Technology stacks
 * jQuery   
 * HTML/CSS   

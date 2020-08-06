@@ -199,7 +199,14 @@ if (defined('ENVIRONMENT'))
 		exit('URL path is missing');
 	}
 
+	define('UPLOAD_REALPATH', realpath(APPPATH . '../uploads/'));
 	define('UPLOAD_LOCALPATH', './uploads/gallery/');
+	if (!is_dir(UPLOAD_REALPATH) ) {
+		mkdir(UPLOAD_REALPATH, 0777, true) or die('Write folder(uploads) permission');
+	}
+	if (!is_dir(UPLOAD_REALPATH . '/gallery//')) {
+		mkdir(UPLOAD_REALPATH . '/gallery//', 0777, true) or die('Write folder(gallery) permission');
+	}
 
 /*
  * --------------------------------------------------------------------

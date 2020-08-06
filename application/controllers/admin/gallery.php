@@ -6,6 +6,7 @@ class Gallery extends CI_Controller {
   {
     parent::__construct();
     $this->data['gallery_active'] = 'active' ;
+
     $this->uploadpath = 'uploads/gallery/';
     $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
     if ( ! $this->session->userdata('login') ) redirect(ACCOUNT_SIGNIN_PATH);
@@ -89,18 +90,23 @@ class Gallery extends CI_Controller {
     else
     {
       $uploaddata = $this->_upload();
-      if ( ! empty($id) )
-      {
-        if ( ! empty($uploaddata['upload_data']['file_name']) ) $this->gallery_model->picture = $uploaddata['upload_data']['file_name'] ;
-        $this->gallery_model->edit() ;
-        $this->session->set_flashdata( 'flash', 'Successfully updated' );
+      if ( ! $uploaddata) {
+        redirect($_SERVER['HTTP_REFERER']);
+      } else {
+        if ( ! empty($id) )
+        {
+          if (empty($uploaddata['error']) && ! empty($uploaddata['upload_data']['file_name']) ) $this->gallery_model->picture = $uploaddata['upload_data']['file_name'] ;
+          $this->gallery_model->edit() ;
+          $this->session->set_flashdata( 'flash', 'Successfully updated' );
+        }
+        else
+        {
+          if (empty($uploaddata['error']) && ! empty($uploaddata['upload_data']['file_name']) ) $this->gallery_model->picture = $uploaddata['upload_data']['file_name'] ;
+          $this->gallery_model->add() ;
+          $this->session->set_flashdata( 'flash', 'Successfully saved' );
+        }
       }
-      else
-      {
-        if ( ! empty($uploaddata['upload_data']['file_name']) ) $this->gallery_model->picture = $uploaddata['upload_data']['file_name'] ;
-        $this->gallery_model->add() ;
-        $this->session->set_flashdata( 'flash', 'Successfully saved' );
-      }
+
       redirect(ADMIN_GALLERY_PATH);
     }
   }
@@ -140,6 +146,7 @@ class Gallery extends CI_Controller {
     {
       if ( ! $this->upload->do_upload())
       {
+        $this->session->set_flashdata( 'flash_error', $this->upload->display_errors());
         return FALSE;
       }
       else

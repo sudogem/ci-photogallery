@@ -5,7 +5,13 @@
 <?php } else { ?>
 <h1 class="title">Edit Photo</h1> 
 <?php } ?>
-<?php echo validation_errors(); ?>
+
+<?php if ($this->session->flashdata('flash_error')) { ?>
+  <div class="error"><?= $this->session->flashdata('flash_error') ?></div>
+<?php } ?>
+<?php
+echo validation_errors();
+?>
 
 <form method="post" action="<?= site_url("admin/gallery/form_gallery/$id") ?>" enctype="multipart/form-data" >
 <table width="100%" border="0" >

@@ -46,11 +46,30 @@
 */
 
 // $active_group = 'postgres_prod';
-$active_group = 'default';
+$active_group = 'docker';
 $active_record = TRUE;
 
 ## Note: Make sure that we configure our Environment variables(System variables in Windows)
 ## Else it will choose the default variables.
+
+$db['docker']['hostname'] = '172.17.0.4';
+$db['docker']['username'] = 'root';
+$db['docker']['password'] = 'webdevel';
+$db['docker']['database'] = 'ci_photogallery';
+$db['docker']['port'] = '3306';
+$db['docker']['dbdriver'] = 'mysql';
+$db['docker']['dbprefix'] = '';
+$db['docker']['pconnect'] = TRUE;
+$db['docker']['db_debug'] = TRUE;
+$db['docker']['cache_on'] = FALSE;
+$db['docker']['cachedir'] = '';
+$db['docker']['char_set'] = 'utf8';
+$db['docker']['dbcollat'] = 'utf8_general_ci';
+$db['docker']['swap_pre'] = '';
+$db['docker']['autoinit'] = TRUE;
+$db['docker']['stricton'] = FALSE;
+
+
 $db['default']['hostname'] = isset($_ENV["PHINX_MYDB_HOST"]) ? $_ENV["PHINX_MYDB_HOST"]: 'localhost';
 $db['default']['username'] = isset($_ENV["PHINX_MYDB_USER"]) ? $_ENV["PHINX_MYDB_USER"]: 'root';
 $db['default']['password'] = isset($_ENV["PHINX_MYDB_PASS"]) ? $_ENV["PHINX_MYDB_PASS"]: 'webdevel';
